@@ -72,7 +72,30 @@ http://localhost:8090/swagger-ui.html
 
 ![img_1.png](img_1.png)
 
-## License
+## How to test using Kafka commands
+
+- Produce one message (manual)
+```
+docker exec -it $(docker ps -qf name=kafka) \
+kafka-console-producer --bootstrap-server localhost:9092 --topic notifications
+```
+
+Paste JSON:
+``
+{"type":"EMAIL","to":"aashicasper@gmail.com","subject":"Kafka test","text":"Hello","correlationId":"c1"}
+``
+- to list the messages
+``
+  docker exec -it $(docker ps -qf name=kafka) \
+  kafka-console-consumer --bootstrap-server localhost:9092 \
+  --topic notifications --from-beginning
+``
+
+
+
+
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-# notifcation
+
+
+
