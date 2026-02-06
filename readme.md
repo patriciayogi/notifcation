@@ -51,7 +51,7 @@ This is a simple notification service built with Spring Boot. It provides API en
   - notifications
 
    ```
-   docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --list
+   docker compose exec kafka kafka-topics --bootstrap-server kafka:9092 --list
   ```
 
     
@@ -83,6 +83,8 @@ kafka-console-producer --bootstrap-server localhost:9092 --topic notifications
 Paste JSON:
 ``
 {"type":"EMAIL","to":"aashicasper@gmail.com","subject":"Kafka test","text":"Hello","correlationId":"c1"}
+{"type":"EMAIL","to":"aashicasper@gmail.com","subject":"Developer","text":"Hey Devs! We are hiring! ","correlationId":"1770402888"}
+
 ``
 - to list the messages
 ``
